@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+ 
+{% load crispy_forms_tags %}
+{% block title %}
+    School | Create Quote
+{% endblock %}
+{% block create_quote %}
+{% include "navbar.html" %}
+<div class="row justify-content-center bg-light mb-5">
+    <div class="col-md-4">
+        <form class="card p-3" method="post" enctype="multipart/form-data" style="background-color: rgb(235, 229, 229);">
+            <h3 class="font-weight-bold text-monospace text-success text-center">Daily Quote</h3>
+            <hr>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+                <div class="form-group ">
+                    {{ form | crispy }}
+                </div>
+            <button type="submit" class="btn btn-light text-light" style="background-color: #21D192">Insert</button><br>
+        </form>
+    </div>
+</div>
+{% endblock %}

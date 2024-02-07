@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% include "navbar.html" %}
+
+{% block list_quote %}
+   <style>
+   .pagination {
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #660fc9;
+}
+
+.pagination a.prev,
+.pagination a.next {
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #bdb8b8;
+}
+   </style>
+            <div class="col-md-12 stretch-card">
+                {% include "navbar.html" %}
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title mt-5">Quote List</h3>
+                  <div class="table-responsive">
+                    <table id="" class="table table-bordered table-hover">
+                      <thead>
+                        <tr class="table-success">
+                            <th>Quote</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for quote in quote_list %}
+                        <tr class="extra-row">
+                          <td>{{quote.quote}}</td>
+                          <td>{{quote.quote_category}}</td>
+                          <td>{{quote.owned_by}}</td> 
+                            <td>
+                              <a  href="http://127.0.0.1:8000/quotes/edit/{{quote.slug}}/" 
+                                  class="btn btn-light text-light" 
+                                  style="background-color: #21D192">Edit
+                              </a>
+                            <td>
+                              <a  href="http://127.0.0.1:8000/quotes/delete/{{quote.slug}}/" 
+                                class="btn btn-light text-light" 
+                                style="background-color: #d61b1b">Delete
+                              </a>
+                          </td>
+                        </tr>
+                        {% empty %}
+                            <tr>
+                              <td colspan="5">No Record found!</td>
+                            </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <div class="pagination">
+                      <a href="#" class="prev">&laquo;</a>
+                      {% for page in pages %}
+                          <a href="#" class="page">{{ page }}</a>
+                      {% endfor %}
+                      <a href="#" class="next">&raquo;</a>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </div>  
+<script>
+  $(document).ready(function() {
+    var numRowsToShow = 5; // Number of rows to show initially
+    var $extraRows = $('.extra-row');
+
+    // Show or hide additional rows based on the initial count
+    $extraRows.slice(0, numRowsToShow).show();
+
+    // Toggle the additional rows when clicking the button or link
+    $('#toggleButton').click(function(e) {
+        e.preventDefault();
+        $extraRows.slice(numRowsToShow).toggle();
+        $(this).text(function(i, text) {
+            return text === 'Show More' ? 'Show Less' : 'Show More';
+        });
+    });
+});
+</script>
+{% endblock %}

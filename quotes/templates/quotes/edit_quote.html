@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+ 
+{% block edit_quote %}
+    <div class="container mt-3">  
+        hello    
+        <div class="row justify-content-center bg-light">
+            <div class="col-md-4">
+                <form class="card p-3" method="post" enctype="multipart/form-data" style="background-color: rgb(235, 229, 229);">
+                    <h3 class="font-weight-bold text-monospace text-success text-center">Edit</h3>
+                    <hr>
+                    {% csrf_token %}
+                        <div class="form-group ">
+                            {{ form|crispy }}
+                        </div>
+                    <button type="submit" class="btn btn-light text-light" style="background-color: #21D192">Edit</button><br>
+                    <a href="http://127.0.0.1:8000/accounts/registration" class="btn btn-light text-light" style="background-color: #d12130">Abort</a>
+                </form>
+            </div>
+        </div>
+    </div>
+ 
+<div class="container my-2">
+    <footer>
+      </section>
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2023 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/"
+           >ephremnigussie7@gmail.com</a
+          >
+      </div>
+    </footer>
+</div>
+{% endblock %}
+
