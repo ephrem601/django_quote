@@ -16,10 +16,13 @@ django-environ==0.10.0
 djangorestframework==3.3.2
 exceptiongroup==1.1.2
 future==0.18.3
+gunicorn==21.2.0
 h11==0.14.0
 httpcore==0.17.3
 httpx==0.24.1
 idna==3.4
+importlib-metadata==6.7.0
+packaging==23.2
 psycopg2==2.9.7
 pycparser==2.21
 python-telegram-bot==13.7
@@ -33,3 +36,4 @@ typing_extensions==4.7.1
 tzdata==2023.3
 tzlocal==5.0.1
 urllib3==1.26.6
+zipp==3.15.0
