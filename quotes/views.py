@@ -17,9 +17,9 @@ from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.core import serializers
 
-# bot_token = '6281201453:AAHy5KAq4BBbjXFMzjYYAINgDUpA6Nok1TY'
+# bot_token = 'YOUR TOKEN HERE'
 # bot = telegram.Bot(token=bot_token)
-# webhook_url = 'https://f02f-102-218-51-116.ngrok-free.app/quotes/webhook/'
+# webhook_url = 'YOUR URL HERE'
 # bot.setWebhook(webhook_url)
 
 
